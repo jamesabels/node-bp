@@ -1,4 +1,4 @@
-import hello from './main';
+import hello from './hello';
 
 test('should return the name passed', () => {
     expect(hello('Typescript')).toBe('Hello, Typescript');
