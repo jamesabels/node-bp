@@ -4,16 +4,23 @@
   "description": "A simple boilerplate for Node and ES6",
   "main": "index.js",
   "scripts": {
-    "test": "jest --watch",
-    "build": "tsc src/main.ts --outDir dist/",
-    "run": "node dist/main.js"
+    "test": "cross-env NODE_ENV=development jest --watch",
+    "build:node": "cross-env NODE_ENV=production rm -rf dist/ && tsc src/main.ts --outDir dist/",
+    "run:node": "node dist/main.js",
+    "bundle:parcel": "cross-env NODE_ENV=production rm -rf dist/ && parcel build src/index.html  --public-url ./",
+    "host:http": "cross-env NODE_ENV=production http-server dist/",
+    "serve:dev": "cross-env NODE_ENV=development parcel src/index.html -p 8080",
+    "serve:production": "cross-env NODE_ENV=production npm run bundle:parcel && npm run host:http"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/jest": "^24.0.15",
     "@types/node": "^12.0.10",
+    "cross-env": "^5.2.0",
+    "http-server": "^0.11.1",
     "jest": "^24.8.0",
+    "parcel-bundler": "^1.12.3",
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.2"
   }
