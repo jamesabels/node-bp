@@ -7,6 +7,7 @@
     "test": "cross-env NODE_ENV=development jest --watch",
     "build:node": "cross-env NODE_ENV=production rm -rf dist/ && tsc src/main.ts --outDir dist/",
     "run:node": "node dist/main.js",
+    "bundle:node": "cross-env NODE_ENV=production rm -rf dist/ && parcel build src/main.ts",
     "bundle:parcel": "cross-env NODE_ENV=production rm -rf dist/ && parcel build src/index.html  --public-url ./",
     "host:http": "cross-env NODE_ENV=production http-server dist/",
     "serve:dev": "cross-env NODE_ENV=development parcel src/index.html -p 8080",
