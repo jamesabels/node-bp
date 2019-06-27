@@ -5,4 +5,8 @@ export default function hello(name: string):string {
     return `Hello, ${name}`;
 };
 
+let body = document.body;
+
+body.innerHTML = "<p>Hello Typescript</p>";
+
 console.log(hello('Typescript'));
